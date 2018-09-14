@@ -10,11 +10,10 @@ RUN apt install composer -yqq
 RUN mkdir /app
 ADD ./app /app
 
-RUN adduser ubuntu
-RUN su ubuntu
 RUN composer create-project wp-coding-standards/wpcs --no-dev
 RUN rm -rf /app/wpcs
 RUN mv /wpcs /app/
-RUN PATH=$PATH:/app/wpcs/vendor/bin
+
+ENV PATH=$PATH:/app/wpcs/vendor/bin
 
 CMD tail -f /dev/null
