@@ -4,6 +4,12 @@ services:
   app:
     build:
       context: .
+      dockerfile: Dockerfile
     volumes:
       - ./app:/app
+
+  sonarqube:
+    build:
+      context: .
+      dockerfile: Dockerfile-SonarQube
 
